@@ -4,26 +4,39 @@ interface MemoryState {
   count: number;
   cards: string[];
   currentPair: string[];
-  checkCard: (value: string) => void;
+  currentIndex: number[];
+  matchedValues: string[];
   increment: () => void;
   reset: () => void;
+  checkCard: (value: string, index: number) => void;
 }
 
-const useMemoryStore = create<MemoryState>((set: any) => ({
+const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
   count: 0,
-  cards: ["A", "B", "B", "A"],
+  cards: ["A", "C", "B", "B", "C", "A"],
   currentPair: [],
-  checkCard(value) {
-      if(this.currentPair.length === 0){
-this.currentPair.push(value)
-      }
-      if(this.currentPair.length === 1){
-        this.currentPair.push(value)
-      }
-      console.log(this.currentPair)
-  },
+  currentIndex: [],
+  matchedValues: [],
   increment: () => set((state: any) => ({ count: state.count + 1 })),
-  reset: () => set((state: any) => ({ count: state.count = 0 })),
+  reset: () => set((state: any) => ({ count: (state.count = 0) })),
+  checkCard: (value, index) => {
+    const { currentPair, currentIndex, matchedValues } = get();
+    set({ currentIndex: [] });
+    if (currentPair.length === 0) {
+      set({ currentPair: [value] });
+      set({ currentIndex: [index] });
+    } else if (currentPair.length === 1) {
+      set({ currentPair: [...currentPair, value] });
+      set({ currentIndex: [...currentIndex, index] });
+      set({});
+      if (get().currentPair[0] === get().currentPair[1]) {
+        set({ matchedValues: [...matchedValues, value] });
+      }
+      set({ currentPair: [] });
+    }
+    console.log(get().currentPair, get().matchedValues, get().currentIndex);
+  },
 }));
+
 
 export default useMemoryStore;

@@ -6,8 +6,8 @@ export const Board = () => {
   const { cards } = useMemoryStore();
   return (
     <div className="boardContainer">
-      {cards.map((card) => (
-        <Card value={card} />
+      {cards.map((card, index) => (
+        <Card value={card} index={index} key={`card${index}`} />
       ))}
     </div>
   );
