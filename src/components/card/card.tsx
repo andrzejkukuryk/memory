@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import "./card.scss";
 import { useState, useEffect } from "react";
-import useMemoryStore from "@/store";
+import useMemoryStore from "../../store";
 import cavatappi from "@assets/cavatappi.jpg";
 import fusilli from "@assets/fusilli.jpg";
 import penne from "@assets/penne.jpg";
@@ -9,6 +9,7 @@ import ravioli from "@assets/ravioli.jpg";
 import rigatoni from "@assets/rigatoni.jpg";
 import rotini from "@assets/rotini.jpg";
 import tortellini from "@assets/tortellini.jpg";
+import { Value } from "../../constants/values.enum";
 
 const images = {
   cavatappi: cavatappi,
@@ -21,15 +22,20 @@ const images = {
 };
 
 interface CardProps {
-  value: string;
+  value: Value;
   index: number;
 }
 
 export const Card = ({ value, index }: CardProps) => {
   const [showBack, setShowBack] = useState<boolean>(false);
   const [matched, setMatched] = useState<boolean>(false);
-  const { checkCard, matchedValues, currentIndex, resetComponent } =
-    useMemoryStore();
+  const {
+    checkCard,
+    matchedValues,
+
+    currentIndex,
+    resetComponents,
+  } = useMemoryStore();
 
   useEffect(() => {
     setMatched(matchedValues.includes(value));
@@ -40,18 +46,17 @@ export const Card = ({ value, index }: CardProps) => {
       if (currentIndex.includes(index) && !matchedValues.includes(value)) {
         setTimeout(() => {
           setShowBack(false);
-        }, 1500);
+        }, 1000);
       }
     }
   }, [currentIndex]);
 
   useEffect(() => {
-    //TODO
-    if (resetComponent) {
-      console.log("reset");
+    if (resetComponents) {
       resetCard();
     }
-  }, [resetComponent]);
+  }, [resetComponents]);
+
   const rotate = () => {
     setShowBack(!showBack);
   };

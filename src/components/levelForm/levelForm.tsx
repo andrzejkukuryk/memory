@@ -3,11 +3,14 @@ import { Level } from "../../constants/levels.enum";
 import "./levelForm.scss";
 
 export const LevelForm = () => {
-  const { setLevel, level } = useMemoryStore();
+  const { setLevel, level, reset } = useMemoryStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedLevel = Number(event.target.value);
-    setLevel(selectedLevel);
+    reset();
+    setTimeout(() => {
+      setLevel(selectedLevel);
+    }, 400);
   };
 
   return (

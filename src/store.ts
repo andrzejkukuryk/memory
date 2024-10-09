@@ -50,7 +50,7 @@ const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
     }),
   checkCard: (value, index) => {
     const { currentPair, currentIndex, matchedValues, history } = get();
-    set({ currentIndex: [] });
+    set({ currentIndex: [], resetComponents: false });
     if (currentPair.length === 0) {
       set({ currentPair: [value], currentIndex: [index] });
     } else if (currentPair.length === 1) {
@@ -59,15 +59,17 @@ const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
         currentIndex: [...currentIndex, index],
       });
       if (get().currentPair[0] === get().currentPair[1]) {
-        set({ matchedValues: [...matchedValues, value] });
+        set({
+          matchedValues: [...matchedValues, value],
+        });
       }
-      set({ history: [...history, currentIndex] }); // TODO
+      set({ history: [...history, [get().currentIndex[0], index]] }); // TODO
       set({ currentPair: [] });
     }
     console.log(
-      get().currentPair,
-      get().matchedValues,
-      get().currentIndex,
+      // get().currentPair,
+      // get().matchedValues,
+      // get().currentIndex,
       get().history
     );
   },
