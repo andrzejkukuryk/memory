@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .card {
     width: 160px;
     height: 200px;
@@ -21,16 +23,17 @@
       height: 100%;
       position: absolute;
       backface-visibility: hidden;
-      border: 2px solid goldenrod;
+      border: 2px solid $color-accent;
       border-radius: 8px;
     }
   
     .front {
-      background-color: #ffcc00;
+      background-color: $color-primary;
+      cursor: pointer;
     }
   
     .back {
-      background-color: #fcecd3;
+      background-color: $color-secondary;
       transform: rotateY(180deg);
       display: flex;
       flex-direction: row;

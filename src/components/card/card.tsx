@@ -28,7 +28,7 @@ interface CardProps {
 export const Card = ({ value, index }: CardProps) => {
   const [showBack, setShowBack] = useState<boolean>(false);
   const [matched, setMatched] = useState<boolean>(false);
-  const { checkCard, matchedValues, currentIndex, increment } =
+  const { checkCard, matchedValues, currentIndex, resetComponent } =
     useMemoryStore();
 
   useEffect(() => {
@@ -45,8 +45,20 @@ export const Card = ({ value, index }: CardProps) => {
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    //TODO
+    if (resetComponent) {
+      console.log("reset");
+      resetCard();
+    }
+  }, [resetComponent]);
   const rotate = () => {
     setShowBack(!showBack);
+  };
+
+  const resetCard = () => {
+    setShowBack(false);
+    setMatched(false);
   };
 
   const handleClick = () => {
