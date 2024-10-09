@@ -1,7 +1,24 @@
 import classNames from "classnames";
 import "./card.scss";
 import { useState, useEffect } from "react";
-import useMemoryStore from "../../store";
+import useMemoryStore from "@/store";
+import cavatappi from "@assets/cavatappi.jpg";
+import fusilli from "@assets/fusilli.jpg";
+import penne from "@assets/penne.jpg";
+import ravioli from "@assets/ravioli.jpg";
+import rigatoni from "@assets/rigatoni.jpg";
+import rotini from "@assets/rotini.jpg";
+import tortellini from "@assets/tortellini.jpg";
+
+const images = {
+  cavatappi: cavatappi,
+  fusilli: fusilli,
+  penne: penne,
+  ravioli: ravioli,
+  rigatoni: rigatoni,
+  rotini: rotini,
+  tortellini: tortellini,
+};
 
 interface CardProps {
   value: string;
@@ -47,7 +64,9 @@ export const Card = ({ value, index }: CardProps) => {
       <div className={cardClass}>
         <div className="inner-card">
           <div className="front">Front Side</div>
-          <div className="back">{value}</div>
+          <div className="back">
+            <img src={images[value]} className="image" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { Value } from "./constants/values.enum";
 
 interface MemoryState {
   count: number;
@@ -13,7 +14,7 @@ interface MemoryState {
 
 const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
   count: 0,
-  cards: ["A", "C", "B", "B", "C", "A"],
+  cards: [Value.fusilli, Value.penne, Value.fusilli, Value.penne],
   currentPair: [],
   currentIndex: [],
   matchedValues: [],

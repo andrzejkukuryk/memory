@@ -22,7 +22,7 @@
       position: absolute;
       backface-visibility: hidden;
       border: 2px solid goldenrod;
-    border-radius: 8px;
+      border-radius: 8px;
     }
   
     .front {
@@ -30,7 +30,17 @@
     }
   
     .back {
-      background-color: #ff5733;
+      background-color: #fcecd3;
       transform: rotateY(180deg);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .image {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+      }
     }
   }
