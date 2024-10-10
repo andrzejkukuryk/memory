@@ -4,15 +4,15 @@ import useMemoryStore from "./store";
 import { Board } from "./components/board/board";
 import { LevelForm } from "./components/levelForm/levelForm";
 import { StartButton } from "./components/startButton/startButton";
+import { Timer } from "./components/timer/timer";
 
 function App() {
-  const { count, reset, randomBoard } = useMemoryStore();
+  const { count } = useMemoryStore();
 
   return (
     <div className="App">
       <h1>Memory: {count}</h1>
-      <button onClick={reset}>Reset</button>
-      <button onClick={randomBoard}>Random board</button>
+      <Timer />
       <LevelForm />
       <StartButton />
       <Board />

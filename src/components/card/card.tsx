@@ -32,9 +32,10 @@ export const Card = ({ value, index }: CardProps) => {
   const {
     checkCard,
     matchedValues,
-
     currentIndex,
     resetComponents,
+    isRunning,
+    startStop,
   } = useMemoryStore();
 
   useEffect(() => {
@@ -67,6 +68,9 @@ export const Card = ({ value, index }: CardProps) => {
   };
 
   const handleClick = () => {
+    if (!isRunning) {
+      startStop();
+    }
     if (!matched && !showBack) {
       rotate();
       checkCard(value, index);

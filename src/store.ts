@@ -13,6 +13,10 @@ interface MemoryState {
   matchedValues: string[];
   history: [number, number][];
   resetComponents: boolean;
+  time: number;
+  isRunning: boolean;
+  incrementTime: () => void;
+  startStop: () => void;
   increment: () => void;
   randomBoard: () => void;
   setLevel: (newLevel: Level) => void;
@@ -29,16 +33,21 @@ const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
   matchedValues: [],
   history: [],
   resetComponents: false,
-  increment: () => set((state: any) => ({ count: state.count + 1 })),
+  time: 0,
+  isRunning: false,
+  incrementTime: () => set((state: MemoryState) => ({ time: state.time + 1 })),
+  startStop: () =>
+    set((state: MemoryState) => ({ isRunning: !state.isRunning })),
+  increment: () => set((state: MemoryState) => ({ count: state.count + 1 })),
   randomBoard: () =>
     set((state: MemoryState) => ({
       cards: getRandomPairs(values, state.level),
     })),
   setLevel: (newLevel: Level) =>
-    set((state: MemoryState) => ({
+    set({
       level: newLevel,
       cards: getRandomPairs(values, newLevel),
-    })),
+    }),
   reset: () =>
     set({
       count: 0,
@@ -47,6 +56,8 @@ const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
       matchedValues: [],
       history: [],
       resetComponents: true,
+      time: 0,
+      isRunning: false,
     }),
   checkCard: (value, index) => {
     const { currentPair, currentIndex, matchedValues, history } = get();
@@ -62,16 +73,14 @@ const useMemoryStore = create<MemoryState>((set: any, get: any) => ({
         set({
           matchedValues: [...matchedValues, value],
         });
+        if (get().matchedValues.length === get().level) {
+          set({ isRunning: false });
+        }
       }
       set({ history: [...history, [get().currentIndex[0], index]] }); // TODO
       set({ currentPair: [] });
     }
-    console.log(
-      // get().currentPair,
-      // get().matchedValues,
-      // get().currentIndex,
-      get().history
-    );
+    console.log(get().history);
   },
 }));
 
