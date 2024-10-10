@@ -1,13 +1,14 @@
-import useMemoryStore from "../../store";
+import { useMemoryStore } from "../../store";
 import { Level } from "../../constants/levels.enum";
 import "./levelForm.scss";
 
 export const LevelForm = () => {
-  const { setLevel, level, reset } = useMemoryStore();
+  const { setLevel, level, resetGame, resetTime } = useMemoryStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedLevel = Number(event.target.value);
-    reset();
+    resetGame();
+    resetTime();
     setTimeout(() => {
       setLevel(selectedLevel);
     }, 400);

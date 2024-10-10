@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import "./card.scss";
 import { useState, useEffect } from "react";
-import useMemoryStore from "../../store";
+import { useMemoryStore } from "../../store";
 import cavatappi from "../../assets/cavatappi.jpg";
 import fusilli from "../../assets/fusilli.jpg";
 import penne from "../../assets/penne.jpg";
@@ -36,7 +36,7 @@ export const Card = ({ value, index }: CardProps) => {
     increment,
     resetComponents,
     isRunning,
-    startStop,
+    startStopTime,
   } = useMemoryStore();
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export const Card = ({ value, index }: CardProps) => {
 
   const handleClick = () => {
     if (!isRunning) {
-      startStop();
+      startStopTime();
     }
     if (currentIndex.length === 1) {
       increment();
@@ -88,7 +88,7 @@ export const Card = ({ value, index }: CardProps) => {
     <div className="container" onClick={handleClick}>
       <div className={cardClass}>
         <div className="inner-card">
-          <div className="front">Front Side</div>
+          <div className="front"></div>
           <div className="back">
             <img src={images[value]} className="image" />
           </div>

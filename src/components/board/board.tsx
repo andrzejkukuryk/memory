@@ -1,6 +1,6 @@
-import useMemoryStore from "../../store";
+import { useMemoryStore } from "../../store";
 import { Card } from "../card/card";
-import "./board.scss"
+import "./board.scss";
 
 export const Board = () => {
   const { cards } = useMemoryStore();

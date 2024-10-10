@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import useMemoryStore from "../../store";
+import { useMemoryStore } from "../../store";
 import "./timer.scss";
 
 export const Timer = () => {
-  const { time, isRunning, incrementTime, startStop } = useMemoryStore();
+  const {
+    time,
+    isRunning,
+    incrementTime,
+    startStopTime: startStop,
+  } = useMemoryStore();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
