@@ -1,0 +1,13 @@
+@import "../../styles/colors.scss";
+
+.start {
+    background-color: $color-primary;
+    color: $color-font;
+    text-align: center;
+    font-size: 32px;
+    width: 300px;
+    height: 100px;
+    border: solid 4px $color-accent;
+    border-radius: 16px;
+
+}

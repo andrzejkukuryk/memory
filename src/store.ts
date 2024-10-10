@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { Value } from "./constants/values.enum";
 import { values } from "./data/values";
-import { getRandomPairs } from "@/utils/randomCards.ts";
+import { getRandomPairs } from "./utils/randomCards.ts";
 import { Level } from "./constants/levels.enum";
 
 interface MemoryState {

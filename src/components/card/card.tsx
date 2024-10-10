@@ -2,13 +2,13 @@ import classNames from "classnames";
 import "./card.scss";
 import { useState, useEffect } from "react";
 import useMemoryStore from "../../store";
-import cavatappi from "@assets/cavatappi.jpg";
-import fusilli from "@assets/fusilli.jpg";
-import penne from "@assets/penne.jpg";
-import ravioli from "@assets/ravioli.jpg";
-import rigatoni from "@assets/rigatoni.jpg";
-import rotini from "@assets/rotini.jpg";
-import tortellini from "@assets/tortellini.jpg";
+import cavatappi from "../../assets/cavatappi.jpg";
+import fusilli from "../../assets/fusilli.jpg";
+import penne from "../../assets/penne.jpg";
+import ravioli from "../../assets/ravioli.jpg";
+import rigatoni from "../../assets/rigatoni.jpg";
+import rotini from "../../assets/rotini.jpg";
+import tortellini from "../../assets/tortellini.jpg";
 import { Value } from "../../constants/values.enum";
 
 const images = {
