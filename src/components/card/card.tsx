@@ -33,6 +33,7 @@ export const Card = ({ value, index }: CardProps) => {
     checkCard,
     matchedValues,
     currentIndex,
+    increment,
     resetComponents,
     isRunning,
     startStop,
@@ -70,6 +71,9 @@ export const Card = ({ value, index }: CardProps) => {
   const handleClick = () => {
     if (!isRunning) {
       startStop();
+    }
+    if (currentIndex.length === 1) {
+      increment();
     }
     if (!matched && !showBack) {
       rotate();
