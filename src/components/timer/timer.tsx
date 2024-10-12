@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useMemoryStore } from "../../store";
 import "./timer.scss";
+import { formatTime } from "../../utils/formatTime";
 
 export const Timer = () => {
   const {
@@ -25,11 +26,7 @@ export const Timer = () => {
     };
   }, [isRunning]);
 
-  const formatTime = (time: number) => {
-    const getMinutes = `0${Math.floor((time / 60) % 60)}`.slice(-2);
-    const getSeconds = `0${time % 60}`.slice(-2);
-    return `${getMinutes}:${getSeconds}`;
-  };
+
 
   return (
     <div className="timerContainer">

@@ -19,15 +19,15 @@ export const resultSlice = (set: any, get: any) => ({
   ).hard,
   addEasy: (newResult: Result) => {
     const { resultsEasy } = get();
-    set({ resultsEasy: [...resultsEasy, newResult] });
+    set({ resultsEasy: [newResult, ...resultsEasy ] });
   },
   addNormal: (newResult: Result) => {
     const { resultsNormal } = get();
-    set({ resultsNormal: [...resultsNormal, newResult] });
+    set({ resultsNormal: [newResult, ...resultsNormal] });
   },
   addHard: (newResult: Result) => {
     const { resultsHard } = get();
-    set({ resultsHard: [...resultsHard, newResult] });
+    set({ resultsHard: [newResult, ...resultsHard] });
   },
   setLs: () => {
     const { resultsEasy, resultsNormal, resultsHard } = get();

@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { useMemoryStore } from "../../store";
-import { formatDateToString } from "../../utils/formatDateToString";
-import { formatTime } from "../../utils/formatTime";
 import { Level } from "../../constants/levels.enum";
 import { ResultsEasy } from "../resultsEasy/resultsEasy";
 import { ResultsNormal } from "../resultsNormal/resultsNormal";
@@ -12,19 +10,50 @@ export const Result = () => {
     level,
     movesCounter,
     time,
+    matchedValues,
     resultsEasy,
     resultsNormal,
     resultsHard,
     addEasy,
+    addNormal,
+    addHard,
     setLs,
   } = useMemoryStore();
 
   useEffect(() => {
-    console.log(resultsEasy[0].date);
-  }, [resultsEasy]);
+    if (matchedValues.length === level) {
+      addResult();
+      setLs();
+    }
+  }, [matchedValues]);
 
-  const kopytko = () => {
-    addEasy({ moves: movesCounter, time: time, date: new Date(Date.now()) });
+  const addResult = () => {
+    switch (level) {
+      case Level.easy: {
+        addEasy({
+          moves: movesCounter,
+          time: time,
+          date: new Date(Date.now()),
+        });
+        break;
+      }
+      case Level.normal: {
+        addNormal({
+          moves: movesCounter,
+          time: time,
+          date: new Date(Date.now()),
+        });
+        break;
+      }
+      case Level.hard: {
+        addHard({
+          moves: movesCounter,
+          time: time,
+          date: new Date(Date.now()),
+        });
+        break;
+      }
+    }
   };
 
   const save = () => {
@@ -32,7 +61,7 @@ export const Result = () => {
   };
   return (
     <div>
-      <button onClick={kopytko}> add easy</button>
+      <button onClick={addResult}> add result</button>
       <button onClick={save}> save</button>
       {level === Level.easy && <ResultsEasy />}
       {level === Level.normal && <ResultsNormal />}
