@@ -1,3 +1,4 @@
+import "./resultsNormal.scss";
 import { useMemoryStore } from "../../store";
 import { findBestResultIndex } from "../../utils/bestResultIndex";
 import { formatDateToString } from "../../utils/formatDateToString";
@@ -16,5 +17,5 @@ export const ResultsNormal = () => {
         )} date: ${formatDateToString(resultsNormal[0].date)}`
       : "not played yet";
 
-  return <div>best result normal: {bestResult} </div>;
+  return <p>best result normal: {bestResult} </p>;
 };

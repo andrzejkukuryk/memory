@@ -1,5 +1,5 @@
 export enum Level {
-  easy = 3,
+  easy = 4,
   normal = 5,
-  hard = 7,
+  hard = 6,
 }

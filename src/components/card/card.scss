@@ -1,10 +1,12 @@
 @import "../../styles/colors.scss";
+@import "../../styles/sizes.scss";
 
 .card {
-    width: 160px;
-    height: 200px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-width: 150px;
     perspective: 1000px;
-    margin: 24px;
+    margin: 20px auto;
   
     .inner-card {
       width: 100%;
@@ -28,7 +30,22 @@
     }
   
     .front {
-      background-color: $color-primary;
+      // background-color: $color-primary;
+      background-image: linear-gradient(
+    70deg,
+    hsl(43deg 74% 49%) 0%,
+    hsl(44deg 77% 50%) 5%,
+    hsl(45deg 82% 50%) 12%,
+    hsl(45deg 87% 51%) 20%,
+    hsl(46deg 92% 51%) 31%,
+    hsl(47deg 97% 50%) 43%,
+    hsl(47deg 97% 50%) 55%,
+    hsl(46deg 92% 51%) 67%,
+    hsl(45deg 87% 51%) 77%,
+    hsl(45deg 82% 50%) 86%,
+    hsl(44deg 77% 50%) 94%,
+    hsl(43deg 74% 49%) 100%
+  );
       cursor: pointer;
     }
   
@@ -41,9 +58,21 @@
       justify-content: center;
 
       .image {
-        width: 150px;
-        height: 150px;
+        width: 100%;
+        height: auto;
         margin: 0 auto;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      max-width: 120px; 
+    }
+  }
+
+  @media (max-width: 375px) {
+    .card {
+      max-width: 100px;
     }
   }

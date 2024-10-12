@@ -5,7 +5,7 @@ import { getRandomPairs } from "../utils/randomCards";
 
 export const gameSlice = (set: any, get: any) => ({
   movesCounter: 0,
-  cards: getRandomPairs(values, 3),
+  cards: getRandomPairs(values, 4),
   currentPair: [],
   currentIndex: [],
   matchedValues: [],

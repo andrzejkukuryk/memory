@@ -1,7 +1,23 @@
 @import "../../styles/colors.scss";
 
 .start {
-    background-color: $color-primary;
+    position: relative;
+    // background-color: $color-primary;
+    background-image: linear-gradient(
+    70deg,
+    hsl(43deg 74% 49%) 0%,
+    hsl(44deg 77% 50%) 5%,
+    hsl(45deg 82% 50%) 12%,
+    hsl(45deg 87% 51%) 20%,
+    hsl(46deg 92% 51%) 31%,
+    hsl(47deg 97% 50%) 43%,
+    hsl(47deg 97% 50%) 55%,
+    hsl(46deg 92% 51%) 67%,
+    hsl(45deg 87% 51%) 77%,
+    hsl(45deg 82% 50%) 86%,
+    hsl(44deg 77% 50%) 94%,
+    hsl(43deg 74% 49%) 100%
+  );
     color: $color-font;
     text-align: center;
     font-size: 32px;
@@ -9,5 +25,11 @@
     height: 100px;
     border: solid 4px $color-accent;
     border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0px 2px 1px 0px rgba(128, 93, 41, 1);
+}
 
+.start:active {
+    top: 2px;
+    box-shadow: none;
 }

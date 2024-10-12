@@ -1,0 +1,14 @@
+$cardWidth: 150px;
+$cardHeight: 190px;
+
+@media (max-width: 1024px) {
+    $cardWidth: 140px;
+  }
+
+  @media (max-width: 768px) {
+    $cardWidth: 120px
+  }
+  
+  @media (max-width: 480px) {
+    $font-size: 100px;
+  }

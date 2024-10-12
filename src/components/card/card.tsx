@@ -85,7 +85,7 @@ export const Card = ({ value, index }: CardProps) => {
   });
 
   return (
-    <div className="container" onClick={handleClick}>
+    <div onClick={handleClick}>
       <div className={cardClass}>
         <div className="inner-card">
           <div className="front"></div>

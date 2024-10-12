@@ -1,22 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.scss";
-import { useMemoryStore } from "./store";
 import { Board } from "./components/board/board";
-import { LevelForm } from "./components/levelForm/levelForm";
-import { StartButton } from "./components/startButton/startButton";
-import { Timer } from "./components/timer/timer";
-import { Result } from "./components/results/results";
+import { Settings } from "./components/settings/settings";
+import { Stats } from "./components/stats/stats";
 
 function App() {
-  const { movesCounter } = useMemoryStore();
-
   return (
     <div className="App">
-      <h1>Moves: {movesCounter}</h1>
-      <Result />
-      <Timer />
-      <LevelForm />
-      <StartButton />
+      <div className="flex">
+        <Settings />
+        <Stats />
+      </div>
       <Board />
     </div>
   );

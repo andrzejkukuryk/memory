@@ -1,7 +1,26 @@
+@import "../../styles/sizes.scss";
+
 .boardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
     justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1024px;
+    gap: 20px;
+  
+    
+    &.easy {
+      grid-template-columns: repeat(4, 1fr); 
+      grid-template-rows: repeat(2, 1fr);
+    }
+  
+    &.normal {
+      grid-template-columns: repeat(5, 1fr); 
+      grid-template-rows: repeat(2, 1fr);
+    }
+  
+    &.hard {
+      grid-template-columns: repeat(4, 1fr); 
+      grid-template-rows: repeat(3, 1fr);
+    }
 }

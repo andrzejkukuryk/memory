@@ -1,12 +1,11 @@
 @import "../../styles/colors.scss";
 
 .timerContainer {
-    height: 100px;
-    width: 100%;
+  //  width: 33%;
     
   }
-  .timeDisplay {
+  p {
     font-size: 40px;
-    margin: 20px;
     color: $color-font;
+    margin: 10px 0;
   }

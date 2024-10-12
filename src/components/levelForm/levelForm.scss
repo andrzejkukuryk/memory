@@ -12,20 +12,57 @@ input[type="radio"] {
   }
 
 input[type="radio"]:checked + label {
-    background-color: $color-primary;
+    // background-color: $color-primary;
+    background-image: linear-gradient(
+    70deg,
+    hsl(43deg 74% 49%) 0%,
+    hsl(44deg 77% 50%) 5%,
+    hsl(45deg 82% 50%) 12%,
+    hsl(45deg 87% 51%) 20%,
+    hsl(46deg 92% 51%) 31%,
+    hsl(47deg 97% 50%) 43%,
+    hsl(47deg 97% 50%) 55%,
+    hsl(46deg 92% 51%) 67%,
+    hsl(45deg 87% 51%) 77%,
+    hsl(45deg 82% 50%) 86%,
+    hsl(44deg 77% 50%) 94%,
+    hsl(43deg 74% 49%) 100%
+  );
 }
 
 label {
+  position: relative;
   font-size: 24px;
   color: $color-font;
   text-align: center;
   width: 160px;
   padding: 8px 0px;
   margin: 0 24px;
-  background-color: $color-secondary;
+  // background-color: $color-secondary;
+  background-image: linear-gradient(
+    70deg,
+    hsl(37deg 87% 91%) 0%,
+    hsl(38deg 97% 89%) 5%,
+    hsl(41deg 100% 87%) 12%,
+    hsl(43deg 100% 85%) 20%,
+    hsl(45deg 100% 84%) 31%,
+    hsl(47deg 98% 81%) 43%,
+    hsl(47deg 98% 81%) 55%,
+    hsl(45deg 100% 84%) 67%,
+    hsl(43deg 100% 85%) 77%,
+    hsl(41deg 100% 87%) 86%,
+    hsl(38deg 97% 89%) 94%,
+    hsl(37deg 87% 91%) 100%
+  );
   border: 2px solid $color-accent;
   border-radius: 8px;
-cursor: pointer;
+  cursor: pointer;
+  box-shadow: 0px 1px 1px 0px rgba(128, 93, 41, 1);
+}
+
+.active {
+  top: 1px;
+  box-shadow: none;
 }
 
 }

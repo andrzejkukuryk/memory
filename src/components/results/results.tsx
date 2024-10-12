@@ -1,3 +1,4 @@
+import "./results.scss";
 import { useEffect } from "react";
 import { useMemoryStore } from "../../store";
 import { Level } from "../../constants/levels.enum";
@@ -57,7 +58,7 @@ export const Result = () => {
   };
 
   return (
-    <div>
+    <div className="resultContainer">
       {level === Level.easy && <ResultsEasy />}
       {level === Level.normal && <ResultsNormal />}
       {level === Level.hard && <ResultsHard />}
