@@ -56,13 +56,8 @@ export const Result = () => {
     }
   };
 
-  const save = () => {
-    setLs();
-  };
   return (
     <div>
-      <button onClick={addResult}> add result</button>
-      <button onClick={save}> save</button>
       {level === Level.easy && <ResultsEasy />}
       {level === Level.normal && <ResultsNormal />}
       {level === Level.hard && <ResultsHard />}

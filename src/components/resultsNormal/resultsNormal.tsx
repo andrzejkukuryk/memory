@@ -1,16 +1,20 @@
 import { useMemoryStore } from "../../store";
+import { findBestResultIndex } from "../../utils/bestResultIndex";
 import { formatDateToString } from "../../utils/formatDateToString";
 import { formatTime } from "../../utils/formatTime";
 
 export const ResultsNormal = () => {
   const { resultsNormal } = useMemoryStore();
 
-  const lastResult =
-    resultsNormal[0] != null
-      ? `moves: ${resultsNormal[0].moves} time: ${formatTime(
-          resultsNormal[0].time
+  const bestResultIndex =
+    resultsNormal.length > 0 ? findBestResultIndex(resultsNormal) : 0;
+
+  const bestResult =
+    resultsNormal[bestResultIndex] != null
+      ? `moves: ${resultsNormal[bestResultIndex].moves} time: ${formatTime(
+          resultsNormal[bestResultIndex].time
         )} date: ${formatDateToString(resultsNormal[0].date)}`
       : "not played yet";
 
-  return <div>last result normal: {lastResult} </div>;
+  return <div>best result normal: {bestResult} </div>;
 };
