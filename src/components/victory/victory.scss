@@ -1,0 +1,50 @@
+@import "../../styles/colors.scss";
+
+.victoryContainer {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; 
+    background-color: rgba(252, 236, 211, 0.9); 
+    padding: 0 40px;
+    border-radius: 8px;
+    border: 2px solid $color-accent;
+    text-align: center;
+p {
+   color: $color-font;
+   font-size: 64px;
+   font-weight: 700;
+
+}}
+
+@media (max-width: 1024px) {
+    .victoryContainer{
+        padding: 0 30px;
+        p{
+            font-size: 60px;
+            font-weight: 700;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .victoryContainer{
+        padding: 0 30px;
+        p{
+            font-size: 48px;
+            font-weight: 600;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .victoryContainer{
+        padding: 0 20px;
+        p{
+            font-size: 32px;
+            font-weight: 500;
+        }
+    }
+}

@@ -2,7 +2,6 @@ import { useMemoryStore } from "../../store";
 import { Level } from "../../constants/levels.enum";
 import "./levelForm.scss";
 import classNames from "classnames";
-import tick from "../../assets/tick.svg";
 
 export const LevelForm = () => {
   const { setLevel, level, resetGame, resetTime } = useMemoryStore();
@@ -40,7 +39,6 @@ export const LevelForm = () => {
       />
 
       <label htmlFor="easy" className={labelEasyClass}>
-        <img src={tick} className={labelEasyClass} />
         Easy
       </label>
 
@@ -53,7 +51,6 @@ export const LevelForm = () => {
         onChange={handleChange}
       />
       <label htmlFor="normal" className={labelNormalClass}>
-        <img src={tick} className={labelNormalClass} />
         Normal
       </label>
 
@@ -66,7 +63,6 @@ export const LevelForm = () => {
         onChange={handleChange}
       />
       <label htmlFor="hard" className={labelHardClass}>
-        <img src={tick} className={labelHardClass} />
         Hard
       </label>
     </form>

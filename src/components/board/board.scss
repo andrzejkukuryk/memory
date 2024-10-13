@@ -1,6 +1,7 @@
 @import "../../styles/sizes.scss";
 
 .boardContainer {
+  position: relative;
     display: grid;
     justify-content: center;
     align-items: center;

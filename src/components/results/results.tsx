@@ -2,7 +2,6 @@ import "./results.scss";
 import { useEffect } from "react";
 import { useMemoryStore } from "../../store";
 import { Level } from "../../constants/levels.enum";
-
 import { findBestResult } from "../../utils/findBestResult";
 import { formatTime } from "../../utils/formatTime";
 import { Result } from "../../models/result";

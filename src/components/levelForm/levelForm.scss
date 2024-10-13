@@ -15,22 +15,15 @@ form {
     flex-direction: row;
     align-items: center;
     font-size: 24px;
-    color: $color-font;
+    font-weight: 300;
+    color: $color-accent;
     padding: 8px 0px;
-    margin-left: 40px;
+    margin-left: 20px;
     cursor: pointer;
-
-    img {
-      display: none;
-      margin-right: 8px;
-    }
-
-    img.active {
-      display: inline-block;
-    }
   }
 
   label.active {
-    margin-left: 0px;
+    font-weight: 700;
+    color: $color-font
   }
 }
