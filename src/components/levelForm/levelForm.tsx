@@ -1,6 +1,6 @@
+import "./levelForm.scss";
 import { useMemoryStore } from "../../store";
 import { Level } from "../../constants/levels.enum";
-import "./levelForm.scss";
 import classNames from "classnames";
 
 export const LevelForm = () => {

@@ -1,5 +1,5 @@
-import { useMemoryStore } from "../../store";
 import "./startButton.scss";
+import { useMemoryStore } from "../../store";
 
 export const StartButton = () => {
   const { resetGame, resetTime, randomBoard } = useMemoryStore();

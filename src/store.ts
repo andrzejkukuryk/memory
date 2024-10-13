@@ -6,7 +6,7 @@ import { MemoryState } from "./models/memoryState";
 import { resultSlice } from "./store/resultStore";
 
 export const useMemoryStore = create<MemoryState>((set, get) => ({
-  ...timeSlice(set, get),
+  ...timeSlice(set),
   ...gameSlice(set, get),
   ...levelSlice(set),
   ...resultSlice(set, get),

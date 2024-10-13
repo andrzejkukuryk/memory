@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useMemoryStore } from "../../store";
 import "./timer.scss";
 import { formatTime } from "../../utils/formatTime";
 
 export const Timer = () => {
-  const {
-    time,
-    isRunning,
-    incrementTime,
-    startStopTime: startStop,
-  } = useMemoryStore();
+  const { time, isRunning, incrementTime } = useMemoryStore();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -25,8 +20,6 @@ export const Timer = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [isRunning]);
-
-
 
   return (
     <div className="timerContainer">

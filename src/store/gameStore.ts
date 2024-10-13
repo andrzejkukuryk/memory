@@ -9,7 +9,6 @@ export const gameSlice = (set: any, get: any) => ({
   currentPair: [],
   currentIndex: [],
   matchedValues: [],
-  history: [],
   resetComponents: false,
   increment: () =>
     set((state: MemoryState) => ({ movesCounter: state.movesCounter + 1 })),
@@ -23,11 +22,10 @@ export const gameSlice = (set: any, get: any) => ({
       currentPair: [],
       currentIndex: [],
       matchedValues: [],
-      history: [],
       resetComponents: true,
     }),
   checkCard: (value: Value, index: number) => {
-    const { currentPair, currentIndex, matchedValues, history } = get();
+    const { currentPair, currentIndex, matchedValues } = get();
     set({ currentIndex: [], resetComponents: false });
 
     if (currentPair.length === 0) {
@@ -48,7 +46,6 @@ export const gameSlice = (set: any, get: any) => ({
         }
       }
 
-      set({ history: [...history, [get().currentIndex[0], index]] });
       set({ currentPair: [] });
     }
   },

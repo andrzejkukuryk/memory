@@ -1,6 +1,6 @@
 import { MemoryState } from "../models/memoryState";
 
-export const timeSlice = (set: any, get: any) => ({
+export const timeSlice = (set: any) => ({
   time: 0,
   isRunning: false,
   incrementTime: () => set((state: MemoryState) => ({ time: state.time + 1 })),

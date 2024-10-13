@@ -1,7 +1,7 @@
+import "./board.scss";
 import classNames from "classnames";
 import { useMemoryStore } from "../../store";
 import { Card } from "../card/card";
-import "./board.scss";
 import { Level } from "../../constants/levels.enum";
 import { Victory } from "../victory/victory";
 
@@ -25,7 +25,6 @@ export const Board = () => {
         ))}
         {showVictory() && <Victory />}
       </div>
-      {/* <Victory /> */}
     </>
   );
 };

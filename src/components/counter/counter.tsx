@@ -1,5 +1,5 @@
-import { useMemoryStore } from "../../store";
 import "./counter.scss";
+import { useMemoryStore } from "../../store";
 
 export const Counter = () => {
   const { movesCounter } = useMemoryStore();

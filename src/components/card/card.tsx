@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import "./card.scss";
+import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { useMemoryStore } from "../../store";
 import cavatappi from "../../assets/cavatappi.jpg";

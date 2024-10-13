@@ -9,7 +9,6 @@ export interface MemoryState {
   currentPair: Value[];
   currentIndex: number[];
   matchedValues: string[];
-  history: [number, number][];
   resetComponents: boolean;
   time: number;
   isRunning: boolean;
