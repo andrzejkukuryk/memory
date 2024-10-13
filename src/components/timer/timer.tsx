@@ -30,7 +30,7 @@ export const Timer = () => {
 
   return (
     <div className="timerContainer">
-      <p>Time: {formatTime(time)}</p>
+      <p> {formatTime(time)}</p>
     </div>
   );
 };

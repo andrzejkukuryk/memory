@@ -1,0 +1,35 @@
+@import "../../styles/colors.scss";
+
+table {
+    font-size: 24px;
+        text-align: center;
+        color: $color-accent;
+    thead {
+        
+         text-align: center;
+         font-weight: 700;
+    }
+    td {
+        padding: 2px 8px;
+        width: 90px;
+        
+    }
+    .current {
+        color: $color-font;
+    }
+
+    .date {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    table {
+        font-size: 20px;
+        margin: 20px 0;
+
+        .date {
+            font-size: 10px;
+        }
+    }
+}

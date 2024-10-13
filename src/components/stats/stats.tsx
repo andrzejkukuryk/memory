@@ -1,12 +1,12 @@
 import "./stats.scss";
 import { Counter } from "../counter/counter";
-import { Result } from "../results/results";
+import { Results } from "../results/results";
 import { Timer } from "../timer/timer";
 
 export const Stats = () => {
   return (
     <div>
-      <Result />
+      <Results />
       <div className="gameStatsContainer">
         <Timer />
         <Counter />
