@@ -1,11 +1,10 @@
 import { useMemoryStore } from "../../store";
 import { Level } from "../../constants/levels.enum";
 import "./levelForm.scss";
-import { useState } from "react";
 import classNames from "classnames";
+import tick from "../../assets/tick.svg";
 
 export const LevelForm = () => {
-  const [active, setActive] = useState<Level | null>(null);
   const { setLevel, level, resetGame, resetTime } = useMemoryStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,24 +16,16 @@ export const LevelForm = () => {
     }, 400);
   };
 
-  const handleMouseDown = (level: Level) => {
-    setActive(level);
-  };
-
-  const handleMouseUp = () => {
-    setActive(null);
-  };
-
   const labelEasyClass = classNames({
-    active: active === Level.easy,
+    active: level === Level.easy,
   });
 
   const labelNormalClass = classNames({
-    active: active === Level.normal,
+    active: level === Level.normal,
   });
 
   const labelHardClass = classNames({
-    active: active === Level.hard,
+    active: level === Level.hard,
   });
 
   return (
@@ -47,12 +38,9 @@ export const LevelForm = () => {
         checked={level === Level.easy}
         onChange={handleChange}
       />
-      <label
-        htmlFor="easy"
-        onMouseDown={() => handleMouseDown(Level.easy)}
-        onMouseUp={handleMouseUp}
-        className={labelEasyClass}
-      >
+
+      <label htmlFor="easy" className={labelEasyClass}>
+        <img src={tick} className={labelEasyClass} />
         Easy
       </label>
 
@@ -64,12 +52,8 @@ export const LevelForm = () => {
         checked={level === Level.normal}
         onChange={handleChange}
       />
-      <label
-        htmlFor="normal"
-        onMouseDown={() => handleMouseDown(Level.normal)}
-        onMouseUp={handleMouseUp}
-        className={labelNormalClass}
-      >
+      <label htmlFor="normal" className={labelNormalClass}>
+        <img src={tick} className={labelNormalClass} />
         Normal
       </label>
 
@@ -81,12 +65,8 @@ export const LevelForm = () => {
         checked={level === Level.hard}
         onChange={handleChange}
       />
-      <label
-        htmlFor="hard"
-        onMouseDown={() => handleMouseDown(Level.hard)}
-        onMouseUp={handleMouseUp}
-        className={labelHardClass}
-      >
+      <label htmlFor="hard" className={labelHardClass}>
+        <img src={tick} className={labelHardClass} />
         Hard
       </label>
     </form>
